@@ -1,0 +1,14 @@
+uuid: dd1e0e22-f828-44ff-a3c1-cd195fa47b63
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.academic_head
+  module:
+    - user
+id: user_add_role_action.academic_head
+label: 'Add the Academic Head role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: academic_head

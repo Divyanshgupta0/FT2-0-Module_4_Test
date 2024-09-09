@@ -1,0 +1,26 @@
+uuid: f9980dbc-c2e4-46c2-9d83-8b64ddcb8fa4
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.subjects.field_study_material
+    - field.field.node.subjects.field_subject_assignment
+    - field.field.node.subjects.field_subject_stream
+    - node.type.subjects
+  module:
+    - user
+id: node.subjects.teaser
+targetEntityType: node
+bundle: subjects
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_study_material: true
+  field_subject_assignment: true
+  field_subject_stream: true

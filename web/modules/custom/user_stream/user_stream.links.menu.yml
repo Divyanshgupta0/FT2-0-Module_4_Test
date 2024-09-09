@@ -1,0 +1,6 @@
+user_stream.example:
+  title: 'User stream'
+  description: 'custom link'
+  route_name: user_stream.current_stream
+  menu_name: main
+  weight: 0

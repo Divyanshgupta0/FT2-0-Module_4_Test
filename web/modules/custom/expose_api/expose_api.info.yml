@@ -1,0 +1,5 @@
+name: 'expose api'
+type: module
+description: 'Display data of users to an api'
+package: Custom
+core_version_requirement: ^10 || ^11

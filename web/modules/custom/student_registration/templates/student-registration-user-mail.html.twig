@@ -1,0 +1,20 @@
+{# student-registration-user-mail.html.twig #}
+
+<p>Dear {{ user_data.full_name }},</p>
+
+<p>Thank you for registering on the student portal. Your account has been successfully created.</p>
+
+<p>Your registration details are as follows:</p>
+<ul>
+  <li><strong>Email Address:</strong> {{ user_data.email }}</li>
+  <li><strong>Mobile Number:</strong> {{ user_data.mobile_number }}</li>
+  <li><strong>Stream:</strong> {{ user_data.stream }}</li>
+  <li><strong>Joining Year:</strong> {{ user_data.joining_year }}</li>
+  <li><strong>Passing Year:</strong> {{ user_data.passing_year }}</li>
+  {# Add more fields as necessary #}
+</ul>
+
+<p>If you have any questions, feel free to contact us.</p>
+
+<p>Best regards,</p>
+<p>The Student Portal Team</p>

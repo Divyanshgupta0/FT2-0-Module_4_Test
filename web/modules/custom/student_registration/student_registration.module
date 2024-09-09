@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function student_registration_theme() {
+  return [
+    'student_registration_admin_mail' => [
+      'variables' => ['user_data' => NULL],
+    ],
+    'student_registration_user_mail' => [
+      'variables' => ['user_id' => NULL, 'user_data' => NULL],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_mail().
+ */
+function student_registration_mail($key, &$message, $params) {
+  $renderer = \Drupal::service('renderer');
+
+  switch ($key) {
+    case 'admin_mail':
+      $message['subject'] = t('New Student Registration');
+      $message['reply-to'] = \Drupal::config('system.site')->get('mail');
+      $render_array = [
+        '#theme' => 'student_registration_admin_mail',
+        '#user_data' => $params['user_data'],
+      ];
+      $message['body'][] = $renderer->renderPlain($render_array);
+      break;
+
+    case 'user_mail':
+      $message['subject'] = t('You Have Registered for the Student Portal');
+      $message['reply-to'] = \Drupal::config('system.site')->get('mail');
+
+      $render_array = [
+        '#theme' => 'student_registration_user_mail',
+        '#user_id' => $params['user_id'],
+        '#user_data' => $params['user_data'],
+      ];
+
+      $message['body'][] = $renderer->renderPlain($render_array);
+      break;
+  }
+}

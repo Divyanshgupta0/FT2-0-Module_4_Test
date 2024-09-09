@@ -1,0 +1,7 @@
+user_stream.current_stream:
+  path: '/stream'
+  defaults:
+    _controller: '\Drupal\user_stream\Controller\GetUserStream::transferStream'
+    _title: 'Stream Link'
+  requirements:
+    _permission: 'access content'

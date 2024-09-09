@@ -1,0 +1,7 @@
+name: 'User stream'
+type: module
+description: 'display menu link of stream of current user'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:user
