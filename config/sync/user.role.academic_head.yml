@@ -1,0 +1,32 @@
+uuid: c56d2089-3a06-4cdb-ad83-1feb1ad888c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.subjects
+  module:
+    - block
+    - field_permissions
+    - node
+    - system
+    - toolbar
+id: academic_head
+label: 'Academic Head'
+weight: 5
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'administer blocks'
+  - 'administer menu'
+  - 'create field_study_material'
+  - 'create field_subject_assignment'
+  - 'edit any subjects content'
+  - 'edit field_study_material'
+  - 'edit field_subject_assignment'
+  - 'edit own field_study_material'
+  - 'edit own field_subject_assignment'
+  - 'view field_study_material'
+  - 'view field_subject_assignment'
+  - 'view own field_study_material'
+  - 'view own field_subject_assignment'

@@ -1,0 +1,29 @@
+uuid: 279edb23-aeee-4829-af7d-5848587daedd
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.homepage_notices
+  module:
+    - system
+    - views
+  theme:
+    - bootstrap5
+id: bootstrap5_views_block__homepage_notices_block_1
+theme: bootstrap5
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:homepage_notices-block_1'
+settings:
+  id: 'views_block:homepage_notices-block_1'
+  label: Notices
+  label_display: '0'
+  provider: views
+  views_label: Notices
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /home

@@ -1,0 +1,24 @@
+uuid: 52226ecc-ed03-4247-8dfd-0a57ca56106e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.notice
+  module:
+    - text
+id: node.notice.body
+field_name: body
+entity_type: node
+bundle: notice
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

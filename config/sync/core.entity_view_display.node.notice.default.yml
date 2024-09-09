@@ -1,0 +1,38 @@
+uuid: 87733ac4-fdb5-48a9-a532-a9bd93105b16
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.notice.body
+    - field.field.node.notice.field_notice_image
+    - image.style.medium
+    - node.type.notice
+  module:
+    - image
+    - text
+    - user
+id: node.notice.default
+targetEntityType: node
+bundle: notice
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_notice_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: medium
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  links: true

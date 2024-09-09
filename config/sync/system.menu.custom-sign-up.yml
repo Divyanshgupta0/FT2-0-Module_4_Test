@@ -1,0 +1,8 @@
+uuid: aa827704-f6a0-4c63-9424-b8d6e34eacbf
+langcode: en
+status: true
+dependencies: {  }
+id: custom-sign-up
+label: 'Custom sign up'
+description: 'to signup a student'
+locked: false

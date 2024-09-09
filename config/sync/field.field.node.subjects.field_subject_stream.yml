@@ -1,0 +1,29 @@
+uuid: 24c98f4f-97ea-4b41-b217-8a05889ebadf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subject_stream
+    - node.type.subjects
+    - taxonomy.vocabulary.student_streams
+id: node.subjects.field_subject_stream
+field_name: field_subject_stream
+entity_type: node
+bundle: subjects
+label: 'Subject Stream'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      student_streams: student_streams
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,5 @@
+name: 'Student Registration'
+type: module
+description: 'For registration of new students'
+package: Custom
+core_version_requirement: ^10 || ^11

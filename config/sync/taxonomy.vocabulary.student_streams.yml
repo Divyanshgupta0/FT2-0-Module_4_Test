@@ -1,0 +1,9 @@
+uuid: 96b5bd28-8b80-4d67-8b74-eb21eb909296
+langcode: en
+status: true
+dependencies: {  }
+name: 'Student Streams'
+vid: student_streams
+description: 'Different Streams for students'
+weight: 0
+new_revision: false
