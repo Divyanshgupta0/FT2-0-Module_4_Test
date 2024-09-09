@@ -20,6 +20,7 @@ module:
   devel_generate: 0
   dynamic_page_cache: 0
   editor: 0
+  expose_api: 0
   field: 0
   field_permissions: 0
   field_ui: 0
@@ -40,8 +41,10 @@ module:
   miniorange_2fa: 0
   mysql: 0
   node: 0
+  notice_cleanup: 0
   options: 0
   page_cache: 0
+  passed_out_cleanup: 0
   path: 0
   path_alias: 0
   search: 0

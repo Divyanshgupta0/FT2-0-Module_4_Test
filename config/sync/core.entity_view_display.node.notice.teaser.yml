@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.notice.body
+    - field.field.node.notice.field_event_date
     - field.field.node.notice.field_notice_image
     - node.type.notice
   module:
@@ -29,4 +30,5 @@ content:
     weight: 100
     region: content
 hidden:
+  field_event_date: true
   field_notice_image: true

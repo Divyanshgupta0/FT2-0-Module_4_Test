@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Implementing notice_cleanup_cron.
+ */
+
+/**
+ * Implementation of notice_cleanup_cron.
+ *
+ * @return void
+ *   Returning void.
+ */
+function notice_cleanup_cron() {
+  $current_time = \Drupal::time()->getRequestTime();
+  $current_date = date('Y-m-d', $current_time);
+
+  \Drupal::logger('notice_cleanup')->notice('Current date for comparison: @date', ['@date' => $current_date]);
+
+  $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+  $query = $node_storage->getQuery();
+
+  $query->condition('type', 'notice');
+  $query->condition('field_event_date', $current_date, '<');
+  $query->condition('status', 1);
+  $query->accessCheck(FALSE);
+
+  $nids = $query->execute();
+
+  \Drupal::logger('notice_cleanup')->notice('Found notices to delete: @count', ['@count' => count($nids)]);
+
+  if (!empty($nids)) {
+    $nodes = $node_storage->loadMultiple($nids);
+
+    foreach ($nodes as $node) {
+      try {
+        $node->delete();
+        \Drupal::logger('notice_cleanup')->notice('Deleted notice with ID: @nid', ['@nid' => $node->id()]);
+      }
+      catch (\Exception $e) {
+        \Drupal::logger('notice_cleanup')->error('Failed to delete notice with ID: @nid. Error: @error', [
+          '@nid' => $node->id(),
+          '@error' => $e->getMessage(),
+        ]);
+      }
+    }
+  }
+  else {
+    \Drupal::logger('notice_cleanup')->notice('No notices found to delete.');
+  }
+
+}

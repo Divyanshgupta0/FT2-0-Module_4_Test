@@ -1,0 +1,5 @@
+name: 'passed out cleanup'
+type: module
+description: 'delete all the passed out users.'
+package: Custom
+core_version_requirement: ^10 || ^11

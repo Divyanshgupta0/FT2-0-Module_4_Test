@@ -16,27 +16,11 @@ mo_auth_2fa_license_type: DRUPAL_2FA
 mo_auth_2fa_license_plan: DRUPAL_2FA
 mo_auth_2fa_license_no_of_users: 1
 mo_auth_enable_two_factor: true
-mo_auth_enforce_inline_registration: false
-mo_auth_2fa_allow_reconfigure_2fa: 0
-mo_auth_2fa_kba_questions: 0
-mo_auth_enable_role_based_2fa: false
-mo_auth_role_based_2fa_roles: '{"authenticated":"ALL SELECTED METHODS","content_editor":"ALL SELECTED METHODS","administrator":"ALL SELECTED METHODS","student":"ALL SELECTED METHODS","academic_head":"ALL SELECTED METHODS"}'
-mo_auth_enable_domain_based_2fa: false
-mo_auth_domain_based_2fa_domains: ''
-mo_2fa_domain_and_role_rule: AND
-mo_auth_use_only_2nd_factor: false
 mo_auth_enable_login_with_email: false
 mo_auth_enable_login_with_phone: false
 mo_auth_override_login_labels: false
 mo_auth_username_title: ''
 mo_auth_username_description: ''
-mo_auth_enable_trusted_IPs: false
-mo_auth_trusted_IP_address: ''
 mo_auth_redirect_user_after_login: 'https://module4.lndo.site/user'
 mo_auth_google_auth_app_name: miniOrangeAuth
-mo_auth_enable_2fa_for_password_reset: false
-allow_end_users_to_decide: false
-auto_fetch_phone_number: false
-phone_number_field_machine_name: ''
-auto_fetch_phone_number_country_code: '0000'
 mo_auth_rba: 0

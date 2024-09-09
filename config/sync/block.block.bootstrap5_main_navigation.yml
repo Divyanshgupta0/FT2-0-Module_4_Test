@@ -6,6 +6,7 @@ dependencies:
     - system.menu.main
   module:
     - system
+    - user
   theme:
     - bootstrap5
 _core:
@@ -24,4 +25,11 @@ settings:
   level: 1
   depth: 0
   expand_all_items: true
-visibility: {  }
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      student: student

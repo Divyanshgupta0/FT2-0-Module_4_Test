@@ -1,0 +1,56 @@
+<?php
+
+/**
+ * @file
+ * Implementing removing users when they passout hook.
+ */
+
+/**
+ * Implements hook_cron().
+ */
+function passed_out_cleanup_cron() {
+  $current_time = \Drupal::time()->getRequestTime();
+  $current_date = date('Y-m-d', $current_time);
+
+  \Drupal::logger('passed_out_cleanup')->notice('Current date for comparison: @date', ['@date' => $current_date]);
+
+  $user_storage = \Drupal::entityTypeManager()->getStorage('user');
+  $query = $user_storage->getQuery();
+  $query->condition('field_passing_year', NULL, 'IS NOT NULL');
+  $query->accessCheck(FALSE);
+
+  $uids = $query->execute();
+
+  if (!empty($uids)) {
+    $users = $user_storage->loadMultiple($uids);
+
+    foreach ($users as $user) {
+      $passing_year = $user->get('field_passing_year')->value;
+
+      $cutoff_date = new \DateTime("$passing_year-12-31");
+      $cutoff_date->modify('-6 months');
+      $cutoff_date_str = $cutoff_date->format('Y-m-d');
+
+      if ($current_date > $cutoff_date_str) {
+        \Drupal::logger('passed_out_cleanup')->notice('User ID: @uid with passing year @year is past the 6-month cleanup period and will be deleted.', [
+          '@uid' => $user->id(),
+          '@year' => $passing_year,
+        ]);
+
+        try {
+          $user->delete();
+          \Drupal::logger('passed_out_cleanup')->notice('Successfully deleted user ID: @uid', ['@uid' => $user->id()]);
+        }
+        catch (\Exception $e) {
+          \Drupal::logger('passed_out_cleanup')->error('Failed to delete user ID: @uid. Error: @error', [
+            '@uid' => $user->id(),
+            '@error' => $e->getMessage(),
+          ]);
+        }
+      }
+    }
+  }
+  else {
+    \Drupal::logger('passed_out_cleanup')->notice('No users found for cleanup.');
+  }
+}

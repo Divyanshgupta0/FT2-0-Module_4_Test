@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.node.notice.body
+    - field.field.node.notice.field_event_date
     - field.field.node.notice.field_notice_image
     - image.style.thumbnail
     - node.type.notice
   module:
+    - datetime
     - image
     - path
     - text
@@ -29,6 +31,12 @@ content:
   created:
     type: datetime_timestamp
     weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_event_date:
+    type: datetime_default
+    weight: 123
     region: content
     settings: {  }
     third_party_settings: {  }
